@@ -53,15 +53,16 @@ extension AvatarPickerVC:UICollectionViewDelegate,UICollectionViewDataSource,UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var numOfColum:CGFloat = 3
-        if UIScreen.main.bounds.width > 376{
-            numOfColum = 4
+        
+        var numOfColumns : CGFloat = 3
+        if UIScreen.main.bounds.width > 375 {
+            numOfColumns = 4
         }
-
+        
         let spaceBetweenCells : CGFloat = 10
-        let paddingSpace : CGFloat = 40
-        let cellDimesnion = ((collectionView.bounds.width-paddingSpace)-(numOfColum-1)*spaceBetweenCells)/numOfColum
-        return CGSize(width: cellDimesnion, height: cellDimesnion)
+        let padding : CGFloat = 40
+        let cellDimension = ((collectionView.bounds.width - padding) - (numOfColumns - 1) * spaceBetweenCells) / numOfColumns
+        return CGSize(width: cellDimension, height: cellDimension)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

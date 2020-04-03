@@ -54,7 +54,7 @@ class CreateAccountVC: UIViewController {
         guard let name = textUsername.text , textUsername.text != nil else {return}
         AuthService.instance.registerUser(email: email, password: pass) { (sucess) in
             if sucess{
-                AuthService.instance.loginUser(email: email, password: pass) { (sucess) in
+                 AuthService.instance.loginUser(email: email, password: pass) { (sucess) in
                     if sucess{
                         print("Logged in user ", AuthService.instance.authToken)
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor) { (sucess) in
@@ -79,6 +79,7 @@ class CreateAccountVC: UIViewController {
         let b = CGFloat(arc4random_uniform(255))/255
         
         bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        avatarColor = "[\(r), \(g), \(b), 1]"
         UIView.animate(withDuration: 0.3){
             self.userImg.backgroundColor = self.bgColor
         }
@@ -99,7 +100,9 @@ class CreateAccountVC: UIViewController {
          textPassword.attributedPlaceholder = NSAttributedString(string: "Enter Password", attributes: [NSAttributedString.Key.foregroundColor:smackPurplePlaceHolder])
     }
     
+
     @objc func handelTap(){
         self.view.endEditing(true)
     }
+    
 }

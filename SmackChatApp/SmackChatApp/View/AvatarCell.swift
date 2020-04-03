@@ -18,10 +18,12 @@ class AvatarCell: UICollectionViewCell {
     
     @IBOutlet weak var avatarImage: UIImageView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpViews()
     }
+    
     
     func setUpViews(){
         self.layer.backgroundColor = UIColor.darkGray.cgColor
